@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tools = [
+  {
+    name: 'Basic Calculator',
+    desc: 'Add, subtract, multiply and divide with a clean keypad.',
+    tag: 'Coming soon',
+  },
+  {
+    name: 'Percentage',
+    desc: 'Work out increases, decreases and percentages instantly.',
+    tag: 'Coming soon',
+  },
+  {
+    name: 'Unit Converter',
+    desc: 'Convert length, weight, temperature and more.',
+    tag: 'Coming soon',
+  },
+];
+---
+
+<BaseLayout title="CalTools — simple calculators" description="CalTools is a small collection of fast, no-nonsense calculators.">
+  <header class="hero">
+    <div class="wrap">
+      <p class="badge">caltools.eu.org</p>
+      <h1>Cal<span>Tools</span></h1>
+      <p class="lead">
+        A small, fast collection of calculators and everyday tools.
+        No accounts, no clutter — just answers.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid" aria-label="Tools">
+      {
+        tools.map((t) => (
+          <article class="card">
+            <div class="card-head">
+              <h2>{t.name}</h2>
+              <span class="chip">{t.tag}</span>
+            </div>
+            <p>{t.desc}</p>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>&copy; {new Date().getFullYear()} CalTools · <a href="https://caltools.eu.org">caltools.eu.org</a></p>
+  </footer>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 0 3rem;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 999px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    letter-spacing: -0.03em;
+  }
+
+  h1 span {
+    color: var(--accent);
+  }
+
+  .lead {
+    max-width: 40rem;
+    margin: 1rem auto 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0 3rem;
+  }
+
+  .card {
+    background: linear-gradient(180deg, var(--surface), var(--surface-2));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .card p {
+    margin: 0.6rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .chip {
+    flex: none;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-2);
+    background: rgba(129, 140, 248, 0.12);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+  }
+
+  .foot {
+    padding: 2rem 1.25rem 3rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>
