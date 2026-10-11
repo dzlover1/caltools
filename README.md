@@ -27,3 +27,8 @@ Cloudflare Pages, Git-connected:
 - Environment variable: `NODE_VERSION=22`
 
 Custom domain `caltools.eu.org` is attached in the Cloudflare Pages project once the EU.org delegation is active.
+
+### www → apex redirect
+
+`functions/_middleware.js` issues a `301` from `www.caltools.eu.org` to `caltools.eu.org`.
+For it to run, also add `www.caltools.eu.org` as a custom domain on the Pages project so requests reach the Function.
